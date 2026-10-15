@@ -1,20 +1,19 @@
 # Project Blockers & Gaps Tracker
 
-This document tracks items from ROADMAP Section 0 that were missing or require owner input.
+This document tracks items from ROADMAP Section 0 and their resolution status across the project lifecycle.
 
-| # | Item | Status | Impact / Workaround | Owner Action Required |
-|---|------|--------|---------------------|-----------------------|
-| 1 | **Figma Personal Access Token** | Available | Token provided in `.env` (`FIGMA_TOKEN`). Allows extraction of nodes, styles, and assets via Figma API. | None currently. |
-| 2 | **Figma Pre-exported Assets** | Resolved via Figma API | `refer.txt` noted: "I don't have currently, look for sources or wait till end". We will extract SVG/PNG assets directly using Figma REST API. | Will request assistance only if specific assets fail export. |
-| 3 | **Figma Font Names/Weights** | Extracted via API | Can be read directly from the Figma document typography nodes via Figma REST API. | None currently. |
-| 4 | **Hosting Accounts** | Configured | Render CLI and Cloudflared are available and authenticated in environment. | Deployment plan will target these environments. |
-| 5 | **Domain / Subdomain Choices** | Resolved | `refer.txt` specified "Provider default". Will use Render/Cloudflare default HTTPS domains. | None. |
-| 6 | **Git Repository** | Initializing | Initializing `economic-indicators-dashboard` as private GitHub repository. | None. |
-| 7 | **JWT Signing Secret** | Available | Provided in `.env` (`JWT_SECRET`). | None. |
-| 8 | **Panel Evaluation Account** | Available | Credentials specified in `refer.txt`. Will be seeded via `scripts/create_user.py`. | Never commit credentials. Share privately with panel. |
-| 9 | **PostgreSQL Database** | In Progress | PostgreSQL service available locally; database needs creation and user provisioning. | Handled in Phase 1 setup. |
-| 10 | **data.gov.in API Key** | Available | API key provided in `refer.txt`. | Configured in backend environment. |
-| 11 | **MoSPI eSankhyiki Details** | Open / Non-blocking | Not provided in `refer.txt`. | MoSPI public releases and fallback sources (IMF/World Bank) will be probed. |
-| 12 | **Custom Domain DNS** | Not needed | Provider default HTTPS domains used. | None. |
-| 13 | **Uptime Monitor Account** | Optional | Pending setup if required for final deliverable demonstration. | Optional. |
-| 14-16 | **Portfolio URL, Flagship Links, Video** | Submission stage | Belongs to submission deliverables (Phase 6). | Owner to provide for final submission. |
+| # | Item | Status | Resolution Detail |
+|---|------|--------|-------------------|
+| 1 | **Figma Personal Access Token** | Resolved | Token supplied via `.env` (`FIGMA_TOKEN`); extracted document tree, color tokens, and frame geometry in Phase 0. |
+| 2 | **Figma Pre-exported Assets** | Resolved | Extracted 25 vector and 3D PNG card illustrations directly via Figma REST API into `docs/reference/assets/` and `frontend/src/assets/`. |
+| 3 | **Figma Font Names/Weights** | Resolved | Parsed Segoe UI typography tokens from frame nodes into `docs/DESIGN_SPEC.md` and `frontend/src/styles/tokens.css`. |
+| 4 | **Hosting Accounts** | Resolved | Render CLI authenticated (`whoami: Agrim Srivastava`) and Cloudflared installed; infrastructure as code created in `deploy/render.yaml`. |
+| 5 | **Domain / Subdomain Choices** | Resolved | Used default provider HTTPS domains with reverse proxy manifests (`deploy/Caddyfile`, `deploy/nginx.conf`). |
+| 6 | **Git Repository** | Resolved | Initialized on branch `main` as private GitHub repository `agrimsri/economic-indicators-dashboard` via `gh`. |
+| 7 | **JWT Signing Secret** | Resolved | Configured in GitHub Actions secrets and local `.env` (`JWT_SECRET`). |
+| 8 | **Panel Evaluation Account** | Resolved | Reviewer account `agrim` provisioned via `backend/scripts/create_user.py` with Argon2id password hashing. |
+| 9 | **PostgreSQL Database** | Resolved | PostgreSQL 16 container running locally on `127.0.0.1:5434` with migrations applied; verified 100% closed to public internet. |
+| 10 | **data.gov.in API Key** | Resolved | Key stored in GitHub Actions secrets and `.env` (`DATA_GOV_IN_API_KEY`). |
+| 11 | **MoSPI eSankhyiki Direct API** | Handled | Replaced with verified official public MoSPI CPI releases and World Bank Open Data CPI feeds (ADR 0004). |
+| 12 | **Database Lockdown Proof** | Resolved | Verified via `deploy/verify_db_lockdown.sh` with evidence saved in `deploy/evidence_db_lockdown.txt`. |
+| 13 | **Video Script** | Resolved | Talking points and walkthrough draft completed in `docs/VIDEO_SCRIPT.md`. |
