@@ -8,6 +8,7 @@ from fastapi.responses import JSONResponse
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 from slowapi.util import get_remote_address
+from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from app.config import settings
 from app.db.migrator import run_migrations
@@ -74,8 +75,22 @@ app.add_middleware(
 
 
 # ==========================================
-# SECURITY HEADERS MIDDLEWARE
+# SECURITY HEADERS & LIMITS MIDDLEWARES
 # ==========================================
+MAX_REQUEST_SIZE = 1024 * 1024  # 1 MB
+
+
+@app.middleware("http")
+async def limit_request_size(request: Request, call_next):
+    content_length = request.headers.get("content-length")
+    if content_length and int(content_length) > MAX_REQUEST_SIZE:
+        return JSONResponse(
+            status_code=413,
+            content={"error": {"code": "PAYLOAD_TOO_LARGE", "message": "Request payload exceeds 1MB limit"}},
+        )
+    return await call_next(request)
+
+
 @app.middleware("http")
 async def add_security_headers(request: Request, call_next):
     response: Response = await call_next(request)
@@ -83,20 +98,24 @@ async def add_security_headers(request: Request, call_next):
     response.headers["X-Frame-Options"] = "DENY"
     response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
     response.headers["Permissions-Policy"] = "geolocation=(), camera=(), microphone=()"
+    if settings.app_env.lower() == "production":
+        response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
     return response
 
 
 # ==========================================
 # GLOBAL ERROR ENVELOPE HANDLER
 # ==========================================
+@app.exception_handler(StarletteHTTPException)
 @app.exception_handler(HTTPException)
-async def custom_http_exception_handler(request: Request, exc: HTTPException):
-    detail = exc.detail
+async def custom_http_exception_handler(request: Request, exc: Exception):
+    status_code = getattr(exc, "status_code", 500)
+    detail = getattr(exc, "detail", "Internal server error")
     if isinstance(detail, dict) and "error" in detail:
-        return JSONResponse(status_code=exc.status_code, content=detail)
+        return JSONResponse(status_code=status_code, content=detail)
     return JSONResponse(
-        status_code=exc.status_code,
-        content={"error": {"code": "HTTP_ERROR", "message": str(detail)}}
+        status_code=status_code,
+        content={"error": {"code": "HTTP_ERROR" if status_code != 404 else "NOT_FOUND", "message": str(detail)}}
     )
 
 
