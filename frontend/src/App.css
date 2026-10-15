@@ -1,0 +1,43 @@
+.dashboard-app {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-page);
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-viewport {
+  width: 100%;
+  max-width: var(--dashboard-width);
+  margin: 0 auto;
+  padding: 0 0 48px 0;
+  display: flex;
+  flex-direction: column;
+  min-height: var(--dashboard-min-height);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--grid-gap);
+  width: 100%;
+}
+
+.grid-card-cell {
+  min-width: 0;
+  width: 100%;
+}
+
+/* Fallback responsive behavior for smaller screens while preserving fixed 1214px on target viewport */
+@media (max-width: 1240px) {
+  .dashboard-viewport {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,64 @@
+.dashboard-card {
+  position: relative;
+  width: 100%;
+  min-height: var(--card-height);
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 10px;
+  box-shadow: var(--shadow-card);
+  padding: 18px 20px 14px 20px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.dashboard-card:hover {
+  border-color: var(--border-card-hover);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(15, 202, 240, 0.1);
+}
+
+.card-corner-fold {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.card-header {
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.card-qualifier {
+  color: var(--text-cyan);
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.card-kpis {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  min-width: 0;
+}
+
+.card-body {
+  flex: 1;
+  min-height: 290px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
