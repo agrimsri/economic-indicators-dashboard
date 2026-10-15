@@ -1,0 +1,24 @@
+[Unit]
+Description=Economic Indicators Dashboard FastAPI Service
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=appuser
+Group=appuser
+WorkingDirectory=/opt/economic-indicators/backend
+Environment="PATH=/opt/economic-indicators/.venv/bin"
+EnvironmentFile=/etc/economic-indicators/backend.env
+ExecStart=/opt/economic-indicators/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000 --workers 2
+Restart=always
+RestartSec=5s
+LimitNOFILE=65535
+
+# Security sandbox
+ProtectSystem=full
+ProtectHome=true
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

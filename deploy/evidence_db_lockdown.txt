@@ -1,0 +1,22 @@
+==========================================================
+ Database Port Lockdown Audit & Verification
+ Target Database Port: 5434
+==========================================================
+
+1. Checking Socket Bindings via ss...
+LISTEN 0      4096       127.0.0.1:5434       0.0.0.0:*                                       
+
+2. Testing Localhost Loopback Reachability (Must Succeed)...
+✔ Loopback reachability: 127.0.0.1:5434 is accessible to local backend.
+
+3. Testing External / Non-Loopback Reachability (Must Fail)...
+Testing ingress on IP: 10.147.144.106:5434...
+nc: connect to 10.147.144.106 port 5434 (tcp) failed: Connection refused
+✔ VERIFIED: External IP 10.147.144.106:5434 is CLOSED / Connection Refused.
+Testing ingress on IP: 172.18.0.1:5434...
+nc: connect to 172.18.0.1 port 5434 (tcp) failed: Connection refused
+✔ VERIFIED: External IP 172.18.0.1:5434 is CLOSED / Connection Refused.
+
+==========================================================
+ RESULT: All audit checks passed. Database port is not exposed to the public internet.
+==========================================================
