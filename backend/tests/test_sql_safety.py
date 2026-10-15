@@ -32,3 +32,4 @@ def test_no_fstring_or_interpolated_sql():
                         assert kw not in s_val, (
                             f"Found forbidden .format() SQL query containing '{kw}' in {py_file.name}:line {node.lineno}"
                         )
+

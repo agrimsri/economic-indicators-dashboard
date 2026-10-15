@@ -5,3 +5,4 @@ target-version = "py312"
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "UP", "B"]
 ignore = ["B008", "E501"]  # FastAPI Depends() in defaults, line length handled by formatter
+
