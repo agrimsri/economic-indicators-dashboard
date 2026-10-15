@@ -1,3 +1,4 @@
+import asyncio
 import logging
 from contextlib import asynccontextmanager
 
@@ -11,7 +12,8 @@ from slowapi.util import get_remote_address
 from app.config import settings
 from app.db.migrator import run_migrations
 from app.db.pool import close_db_pool, init_db_pool
-from app.routers import auth, health
+from app.routers import auth, dashboard, health, stream
+from app.services.scheduler import run_all_collectors_once, start_scheduler, stop_scheduler
 
 # Configure structured logging
 logging.basicConfig(
@@ -32,8 +34,16 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         logger.error(f"Migration error during startup: {e}")
     await init_db_pool()
+
+    if settings.enable_scheduler:
+        start_scheduler()
+        # Warmup collection in background
+        asyncio.create_task(run_all_collectors_once())
+
     yield
     logger.info("Shutting down API...")
+    if settings.enable_scheduler:
+        stop_scheduler()
     await close_db_pool()
 
 
@@ -95,3 +105,6 @@ async def custom_http_exception_handler(request: Request, exc: HTTPException):
 # ==========================================
 app.include_router(health.router)
 app.include_router(auth.router)
+app.include_router(dashboard.router)
+app.include_router(stream.router)
+

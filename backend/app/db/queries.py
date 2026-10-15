@@ -148,8 +148,8 @@ async def upsert_snapshot(
         INSERT INTO snapshots (card, payload, as_of, fetched_at, status, last_error, version)
         VALUES (%s, %s::jsonb, %s, now(), %s, %s, 1)
         ON CONFLICT (card) DO UPDATE
-        SET payload = CASE WHEN %s = 'fresh' THEN EXCLUDED.payload ELSE snapshots.payload END,
-            as_of = CASE WHEN %s = 'fresh' THEN EXCLUDED.as_of ELSE snapshots.as_of END,
+        SET payload = EXCLUDED.payload,
+            as_of = COALESCE(EXCLUDED.as_of, snapshots.as_of),
             fetched_at = now(),
             status = EXCLUDED.status,
             last_error = EXCLUDED.last_error,
@@ -160,7 +160,7 @@ async def upsert_snapshot(
         async with conn.cursor() as cur:
             await cur.execute(
                 query,
-                (card, payload_json, as_of, status, last_error, status, status)
+                (card, payload_json, as_of, status, last_error)
             )
             await conn.commit()
 
