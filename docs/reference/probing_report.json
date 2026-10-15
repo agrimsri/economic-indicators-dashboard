@@ -1,0 +1,30 @@
+{
+  "IMF_GDP": {
+    "status": "FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "IMF_DEBT": {
+    "status": "FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "IMF_CPI": {
+    "status": "FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "WORLDBANK_GDP": {
+    "status": "OK",
+    "rows_count": 16
+  },
+  "NSE_BOOTSTRAP": {
+    "status": "FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "BSE_SENSEX": {
+    "status": "FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "DATA_GOV_IN": {
+    "status": "FAILED",
+    "error": "HTTP Error 403: Forbidden"
+  }
+}

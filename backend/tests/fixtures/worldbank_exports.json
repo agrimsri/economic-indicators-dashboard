@@ -1,0 +1,188 @@
+[
+  {
+    "page": 1,
+    "pages": 1,
+    "per_page": 50,
+    "total": 11,
+    "sourceid": "2",
+    "lastupdated": "2026-10-08"
+  },
+  [
+    {
+      "indicator": {
+        "id": "NE.EXP.GNFS.CD",
+        "value": "Exports of goods and services (current US$)"
+      },
+      "country": {
+        "id": "IN",
+        "value": "India"
+      },
+      "countryiso3code": "IND",
+      "date": "2025",
+      "value": 880740846621.545,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NE.EXP.GNFS.CD",
+        "value": "Exports of goods and services (current US$)"
+      },
+      "country": {
+        "id": "IN",
+        "value": "India"
+      },
+      "countryiso3code": "IND",
+      "date": "2024",
+      "value": 829785193474.459,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NE.EXP.GNFS.CD",
+        "value": "Exports of goods and services (current US$)"
+      },
+      "country": {
+        "id": "IN",
+        "value": "India"
+      },
+      "countryiso3code": "IND",
+      "date": "2023",
+      "value": 782620610192.051,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NE.EXP.GNFS.CD",
+        "value": "Exports of goods and services (current US$)"
+      },
+      "country": {
+        "id": "IN",
+        "value": "India"
+      },
+      "countryiso3code": "IND",
+      "date": "2022",
+      "value": 781290791563.827,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NE.EXP.GNFS.CD",
+        "value": "Exports of goods and services (current US$)"
+      },
+      "country": {
+        "id": "IN",
+        "value": "India"
+      },
+      "countryiso3code": "IND",
+      "date": "2021",
+      "value": 677769255428.552,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NE.EXP.GNFS.CD",
+        "value": "Exports of goods and services (current US$)"
+      },
+      "country": {
+        "id": "IN",
+        "value": "India"
+      },
+      "countryiso3code": "IND",
+      "date": "2020",
+      "value": 499728529072.629,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NE.EXP.GNFS.CD",
+        "value": "Exports of goods and services (current US$)"
+      },
+      "country": {
+        "id": "IN",
+        "value": "India"
+      },
+      "countryiso3code": "IND",
+      "date": "2019",
+      "value": 529245063167.215,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NE.EXP.GNFS.CD",
+        "value": "Exports of goods and services (current US$)"
+      },
+      "country": {
+        "id": "IN",
+        "value": "India"
+      },
+      "countryiso3code": "IND",
+      "date": "2018",
+      "value": 538635186135.438,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NE.EXP.GNFS.CD",
+        "value": "Exports of goods and services (current US$)"
+      },
+      "country": {
+        "id": "IN",
+        "value": "India"
+      },
+      "countryiso3code": "IND",
+      "date": "2017",
+      "value": 498258808231.521,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NE.EXP.GNFS.CD",
+        "value": "Exports of goods and services (current US$)"
+      },
+      "country": {
+        "id": "IN",
+        "value": "India"
+      },
+      "countryiso3code": "IND",
+      "date": "2016",
+      "value": 439642578076.358,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    },
+    {
+      "indicator": {
+        "id": "NE.EXP.GNFS.CD",
+        "value": "Exports of goods and services (current US$)"
+      },
+      "country": {
+        "id": "IN",
+        "value": "India"
+      },
+      "countryiso3code": "IND",
+      "date": "2015",
+      "value": 416787940847.812,
+      "unit": "",
+      "obs_status": "",
+      "decimal": 0
+    }
+  ]
+]
