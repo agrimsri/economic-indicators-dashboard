@@ -5,6 +5,7 @@ import time
 from collections.abc import Callable
 from datetime import UTC, datetime
 from typing import Any
+from urllib.parse import urlparse
 
 import httpx
 
@@ -12,6 +13,37 @@ from app.config import settings
 from app.db.queries import record_collector_run
 
 logger = logging.getLogger(__name__)
+
+ALLOWED_UPSTREAM_DOMAINS = {
+    "www.nseindia.com",
+    "nseindia.com",
+    "api.worldbank.org",
+    "data.worldbank.org",
+    "www.imf.org",
+    "imf.org",
+    "api.bseindia.com",
+    "www.bseindia.com",
+    "bseindia.com",
+    "query1.finance.yahoo.com",
+    "query2.finance.yahoo.com",
+    "api.data.gov.in",
+    "data.gov.in",
+    "www.indiabudget.gov.in",
+    "indiabudget.gov.in",
+    "pib.gov.in",
+    "mospi.gov.in",
+    "localhost",
+    "127.0.0.1",
+}
+
+
+def validate_upstream_url(url: str) -> bool:
+    """SSRF Guard: Validates that outbound requests only target approved domains."""
+    parsed = urlparse(url)
+    hostname = (parsed.hostname or "").lower()
+    if not hostname or hostname not in ALLOWED_UPSTREAM_DOMAINS:
+        raise ValueError(f"SSRF Guard: Request to unauthorized domain '{hostname}' blocked.")
+    return True
 
 
 class CircuitBreakerOpenException(Exception):
