@@ -30,8 +30,6 @@ services:
   - type: web
     name: economic-indicators-frontend
     runtime: static
-    region: oregon
-    plan: free
     branch: main
     rootDir: frontend
     buildCommand: npm install && npm run build
@@ -55,3 +53,4 @@ databases:
     databaseName: economic_dashboard
     user: app_user
     ipAllowList: [] # Deny all public internet traffic; reachable only by internal backend service
+
