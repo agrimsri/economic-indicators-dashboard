@@ -4,6 +4,22 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
+      "source": "/health",
+      "destination": "https://economic-indicators-api-fgnn.onrender.com/health"
+    },
+    {
+      "source": "/docs",
+      "destination": "https://economic-indicators-api-fgnn.onrender.com/docs"
+    },
+    {
+      "source": "/openapi.json",
+      "destination": "https://economic-indicators-api-fgnn.onrender.com/openapi.json"
+    },
+    {
+      "source": "/redoc",
+      "destination": "https://economic-indicators-api-fgnn.onrender.com/redoc"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
