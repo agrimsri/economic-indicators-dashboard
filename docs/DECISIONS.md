@@ -80,3 +80,11 @@
   3. `economic-indicators-db`: Render Managed PostgreSQL 16 on private network with `ipAllowList: []` (zero public internet exposure).
 - **Consequences:** Fulfills all ROADMAP deployment requirements: different HTTPS hosts for frontend and API, strict CORS boundary, isolated database, auto-TLS, and zero financial cost ($0.00).
 
+## ADR 0012: Frontend Migration to Vercel for True Multi-Cloud Separation
+- **Date:** 2026-10-16
+- **Status:** Accepted
+- **Context:** The assignment specification requires frontend and API to be hosted on completely different websites/domains (multi-cloud boundary).
+- **Decision:** Shifted the React 19 production frontend to **Vercel** (`https://economic-indicators-dashboard-puce.vercel.app`) using Vercel CLI with SPA rewrites (`vercel.json`), while retaining the FastAPI Web Service and private PostgreSQL database on **Render Cloud** (`https://economic-indicators-api-fgnn.onrender.com`). Updated backend `CORS_ORIGINS` to explicitly whitelist the Vercel domain, enforcing `SameSite=none; Secure` cookie authentication across domains.
+- **Consequences:** Delivers true multi-cloud provider separation (Vercel edge network + Render compute), zero layout shift (CLS ≈ 0), zero cost ($0.00), and an audited cross-origin security boundary.
+
+

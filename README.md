@@ -14,13 +14,13 @@ A production-grade, high-fidelity macroeconomic dashboard built with **React 19,
 
 ## 🚀 Live Production Deployment
 
-The entire system is deployed live on native cloud infrastructure (**Render Cloud**, Free Tier, $0.00 spent) with zero tunneling:
+The system is deployed across **two distinct cloud platforms** (Frontend on **Vercel**, Backend + Database on **Render**), fulfilling the strict architectural requirement of different host origins with strict CORS enforcement and zero tunneling:
 
-| Service | Hosting | Public Live URL | Health / Docs |
+| Service | Platform | Public Live URL | Health / Verification |
 |---|---|---|---|
-| **Frontend Dashboard** | Render Static Site (Global CDN) | [https://economic-indicators-frontend.onrender.com](https://economic-indicators-frontend.onrender.com) | Production React 19 UI |
-| **Backend REST & SSE API** | Render Web Service (Python 3.12) | [https://economic-indicators-api-fgnn.onrender.com](https://economic-indicators-api-fgnn.onrender.com) | [`/health`](https://economic-indicators-api-fgnn.onrender.com/health) · [`/docs`](https://economic-indicators-api-fgnn.onrender.com/docs) |
-| **PostgreSQL Database** | Render Managed PostgreSQL 16 | Private Network Host | `ipAllowList: []` (Isolated) |
+| **Frontend Dashboard** | **Vercel** (Global Edge CDN) | [https://economic-indicators-dashboard-puce.vercel.app](https://economic-indicators-dashboard-puce.vercel.app) | Production React 19 UI |
+| **Backend REST & SSE API** | **Render** (Python 3.12 Web Service) | [https://economic-indicators-api-fgnn.onrender.com](https://economic-indicators-api-fgnn.onrender.com) | [`/health`](https://economic-indicators-api-fgnn.onrender.com/health) · [`/docs`](https://economic-indicators-api-fgnn.onrender.com/docs) |
+| **PostgreSQL Database** | **Render** (Managed PostgreSQL 16) | Private Host (`dpg-db90r8ei0phs7399kr4g-a`) | `ipAllowList: []` (Isolated to private network) |
 
 ### Reviewer Evaluation Credentials
 - **Username:** `testuser`
