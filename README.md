@@ -356,9 +356,32 @@ Key architectural decisions are documented in [docs/DECISIONS.md](docs/DECISIONS
 - **ADR 0008:** Debt to GDP Annual Horizon Alignment
 - **ADR 0009:** In-Memory JWT Access Token and Rotating Refresh Cookie
 - **ADR 0010:** Database Port Lockdown and Public Non-Exposure Evidence
+- **ADR 0011:** Native Cloud Multi-Host Deployment on Render
+- **ADR 0012:** Frontend Migration to Vercel for True Multi-Cloud Separation
 
 ---
 
 ## 15. Presentation & Walkthrough Video Script
 
-A draft 5-minute technical presentation outline covering the live application demo, architecture overview, security controls, and design decisions is provided in [docs/VIDEO_SCRIPT.md](docs/VIDEO_SCRIPT.md).
+A comprehensive technical presentation outline covering the live application demo, multi-cloud architecture, security boundary verification, and engineering decisions is provided in [docs/VIDEO_SCRIPT.md](docs/VIDEO_SCRIPT.md).
+
+---
+
+## 16. Candidate Portfolio & Flagship Projects
+
+> *Note for Interview Submission: As required by ROADMAP §0.3 and §16, fill in your portfolio website and flagship project details below before final panel submission.*
+
+### Portfolio
+- **Portfolio Website:** [Your Portfolio URL]
+- **GitHub Profile:** [https://github.com/agrimsri](https://github.com/agrimsri)
+- **LinkedIn / Contact:** [Your Contact Details]
+
+### Flagship Projects
+1. **[Project 1 Name]**
+   - **Role:** [e.g. Lead Full-Stack Engineer / System Architect]
+   - **Key Technologies:** [e.g. React, TypeScript, FastAPI, PostgreSQL, Redis]
+   - **What was built:** [Brief description of the challenge, system architecture, key impact, and measurable outcome]
+2. **[Project 2 Name]**
+   - **Role:** [e.g. Backend & Infrastructure Engineer]
+   - **Key Technologies:** [e.g. Python, Docker, Kubernetes, AWS]
+   - **What was built:** [Brief description of the system, data scale, concurrency, and technical highlights]
