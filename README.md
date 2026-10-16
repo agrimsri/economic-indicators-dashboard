@@ -12,6 +12,23 @@ A production-grade, high-fidelity macroeconomic dashboard built with **React 19,
 
 ---
 
+## 🚀 Live Production Deployment
+
+The entire system is deployed live on native cloud infrastructure (**Render Cloud**, Free Tier, $0.00 spent) with zero tunneling:
+
+| Service | Hosting | Public Live URL | Health / Docs |
+|---|---|---|---|
+| **Frontend Dashboard** | Render Static Site (Global CDN) | [https://economic-indicators-frontend.onrender.com](https://economic-indicators-frontend.onrender.com) | Production React 19 UI |
+| **Backend REST & SSE API** | Render Web Service (Python 3.12) | [https://economic-indicators-api-fgnn.onrender.com](https://economic-indicators-api-fgnn.onrender.com) | [`/health`](https://economic-indicators-api-fgnn.onrender.com/health) · [`/docs`](https://economic-indicators-api-fgnn.onrender.com/docs) |
+| **PostgreSQL Database** | Render Managed PostgreSQL 16 | Private Network Host | `ipAllowList: []` (Isolated) |
+
+### Reviewer Evaluation Credentials
+- **Username:** `testuser`
+- **Password:** `test_pass_123`
+*(Or log in as `agrim` if custom password was provisioned).*
+
+---
+
 ## 1. Overview & Evaluation Viewport
 
 - **Target Viewport:** Strict **1214 × 2159 CSS pixels** (No horizontal scroll, zero layout shift, stable 2-column × 3-row grid).

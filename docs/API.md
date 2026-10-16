@@ -2,8 +2,11 @@
 
 The FastAPI backend exposes endpoints for authentication, real-time dashboard data, historical metrics, server-sent events (SSE), and system health monitoring.
 
-## Base URL
-`${API_BASE_URL}` (configured via `VITE_API_BASE_URL` on frontend)
+## Base URLs
+- **Production API:** `https://economic-indicators-api-fgnn.onrender.com`
+- **Interactive OpenAPI Docs:** `https://economic-indicators-api-fgnn.onrender.com/docs`
+- **Local Development:** `http://127.0.0.1:8000`
+
 
 ## Authentication
 JWT-based authentication using HTTP-only secure refresh cookie and short-lived in-memory bearer access token.

@@ -69,3 +69,14 @@
 - **Context:** Requirement that the PostgreSQL database is never publicly reachable from the internet.
 - **Decision:** Bound PostgreSQL container strictly to `127.0.0.1:5434`, provided host UFW firewall rules dropping external port 5432/5434 traffic, and created automated audit test `deploy/verify_db_lockdown.sh` saving evidence.
 - **Consequences:** Database listener rejects all non-loopback network packets.
+
+## ADR 0011: Native Cloud Multi-Host Deployment on Render
+- **Date:** 2026-10-16
+- **Status:** Accepted
+- **Context:** Delivering a proper production deployment with separate hosts for frontend and API, without relying on tunnels, and maintaining a strict $0.00 cost limit.
+- **Decision:** Provisioned 3 cloud resources on Render Cloud under the user's connected workspace:
+  1. `economic-indicators-frontend`: Render Static Site on global CDN (`https://economic-indicators-frontend.onrender.com`).
+  2. `economic-indicators-api`: Render Web Service running FastAPI on Python 3.12 (`https://economic-indicators-api-fgnn.onrender.com`).
+  3. `economic-indicators-db`: Render Managed PostgreSQL 16 on private network with `ipAllowList: []` (zero public internet exposure).
+- **Consequences:** Fulfills all ROADMAP deployment requirements: different HTTPS hosts for frontend and API, strict CORS boundary, isolated database, auto-TLS, and zero financial cost ($0.00).
+
