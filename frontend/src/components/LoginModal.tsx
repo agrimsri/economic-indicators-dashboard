@@ -50,7 +50,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
         </div>
 
         <p className="modal-subtitle">
-          Sign in with your evaluation credentials to view the authenticated dashboard and live SSE stream.
+          Username and password are in github repo since no other way to share
         </p>
 
         {error && <div className="modal-error" role="alert">{error}</div>}
@@ -102,9 +102,6 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
           </div>
         </form>
 
-        <div className="modal-footer-note">
-          <span>🔒 Tokens stored in memory · HTTPS / SameSite cookies</span>
-        </div>
       </div>
     </div>
   )
